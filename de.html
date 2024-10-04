@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Galeria</title>
+  <link rel="stylesheet" type="text/css" href="des.css" lang="pt-BR">
+</head>
+   <header>
+    <h1> Desenhos</h1>
+     <button id="mostrarBtn">Categorias</button>
+    <nav id="listaNav">
+      <ul>
+        <li><a href="carrosel.html">Inicio</a></li>
+        <li><a href= "pi.html">Pixel-arts</a></li>
+        <li><a href= "le.html">Lembranças</a></li>
+        <li><a href="index.html">Login</a></li>
+      </ul>
+    </nav>
+  
+  </header>
+<body>
+  <div class="content">
+    <div class="slides">
+     <input type = "radio" name="radio" id="radio1" checked>
+       <input type = "radio" name="radio" id="radio2">
+      <input type = "radio" name="radio" id="radio3">
+      <input type = "radio" name="radio" id="radio4">
+      <input type = "radio" name="radio" id="radio5">
+
+      <div class="slide s1">
+         <img src="imagens/heart_chan.jpg" id="heart chan">
+        <figcaption>heart-chan</figcaption>
+      </div>
+       <div class="slide">
+        <img src="imagens/samara.jpg" id="samara">
+         <figcaption>samara</figcaption>
+      </div>
+       <div class="slide">
+          <img src="imagens/bibedatebu.jpg" id="chapeleiro">
+          <figcaption>chapeleiro</figcaption>
+      </div>
+      <div class="slide">
+          <img src="imagens/paisagemA0005.jpg" id="Revolução da natureza">
+         <figcaption>Revolução da natureza</figcaption>
+      </div>
+      <div class="slide">
+          <img src="imagens/Scan.jpg" id="Chan">
+         <figcaption>amazonia-chan</figcaption>
+      </div>
+        
+  </div>
+
+      <div class="navigation">
+        <label class="bar" for="radio1"> </label>
+        <label class="bar" for="radio2"> </label>
+        <label class="bar" for="radio3"> </label>
+        <label class="bar" for="radio4"> </label>
+        <label class="bar" for="radio5"> </label>
+      </div> 
+    
+  </div>
+
+  <script>
+    document.getElementById("mostrarBtn").addEventListener("click", function() {
+            var lista = document.getElementById("listaNav");
+            if (lista.style.display === "none") {
+                lista.style.display = "block";
+            } else {
+                lista.style.display = "none";
+            }
+        });
+    
+            var lista = document.getElementById("listaNav");
+            if (lista.style.display === "none") {
+                lista.style.display = "block";
+            } else {
+                lista.style.display = "none";
+            }
+  </script>
+</body>
+</html>

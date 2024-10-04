@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Epoch</title>
+    <style>
+      * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #0d0d0d;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+         display: flex;
+                 height: 100vh;
+                            width: 100vw;
+        }
+     
+
+      
+         .container-wrapper {
+            position: relative;
+           margin-right: 2000px;
+            display: flex;
+            align-items: center;
+           background-color: black;
+        }
+
+        .container {
+            display: none;
+            flex: 1;
+           overflow-y: auto;
+            max-width: 2000px;
+            margin-left: 0px;
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+        }
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+          max-width: 100%;
+           padding-right: 20px;
+        }
+        .button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 10px;
+            transition: background-color 0.3s ease;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+        .gallery-container {
+          max-width: 2000px;
+          overflow-y: auto;
+           flex: 1; 
+            flex-wrap: wrap;
+        }
+      .gallery-container-warapper {
+          max-height: 2000px; 
+         overflow-y: auto;
+         transition: transform 0.5s ease;
+        }
+        .gallery {
+          max-width: 2000px;
+            display: none;
+        }
+        .gallery img {
+             width: 500px;
+            height: 500px;
+            margin: 50px;
+            border-radius: 10px;
+      box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+      margin: 15px;
+      overflow: hidden;
+      flex-direction: column;
+      justify-content: flex-end;
+      transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .gallery img:hover {
+             transform: translateY(-10px);
+      box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.5);
+        }
+      .toggle-button {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            width: 500px; /* Tamanho maior para o botão de toggle */
+            height: 500px; /* Tamanho maior para o botão de toggle */
+            position: absolute;
+            top: 50%; /* Posicionamento vertical ao centro */
+            left: 50%; /* Posicionamento horizontal ao centro */
+            transform: translate(-50%, -50%); /* Centralizar o botão de toggle no meio da tela */
+        }
+      .toggle-button2 {
+            background-color: transparent;
+            border: none;
+            display: none;
+            width: 300px; 
+            height: 300px; 
+            position: absolute;
+            top: 50%;
+            left: -5%;
+            transform: translateY(-50%);
+        }
+        .toggle-button2 img {
+            width: 100%;
+            height: 100%;
+        }
+       .toggle-button img {
+            width: 100%;
+            height: 100%;
+        }
+       @keyframes shake {
+            0% { transform: translate(0, 0);  background-position: 0 0;}
+            25% { transform: translate(-5px, 5px);background-position: 25% 0; }
+            50% { transform: translate(5px, -5px);background-position: 50% 0; }
+            75% { transform: translate(-5px, -5px);background-position: 75% 0; }
+            100% { transform: translate(5px, 5px); background-position: 100% 0; }
+        }
+       
+
+
+      
+        
+        .shake-animation {
+          overflow-y: hidden;
+          font-family: 'Arial', sans-serif;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-align: center;
+            animation: slideDown 0.1ms linear infinite;
+        }
+
+     @keyframes slideDown {
+  0% {
+    transform: translateY(-100%); /* Posição inicial (deslocado para cima) */
+  }
+  100% {
+    transform: translateY(100%); /* Posição final (deslocado para baixo) */
+  }
+      }
+
+      .epoch-go{
+        position: absolute;
+            top: 50%; /* Posicionamento vertical ao centro */
+            left: 50%; /* Posicionamento horizontal ao centro */
+            transform: translate(-50%, -50%);
+         animation: epo 7s linear infinite;
+      }
+      
+      @keyframes epo{
+         0% {
+    transform: translateY(100%);
+  }
+  100% {
+   transform: translateY(-100%);
+  }
+}
+      .active {
+            display: none;
+        }
+      .image-title {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.7); 
+            color: #fff; 
+            padding: 5px 10px; 
+            font-size: 14px; 
+            text-align: center;
+            border-radius: 5px; 
+            pointer-events: none; 
+            opacity: 0; 
+            transition: opacity 0.3s ease;
+        }
+       .image-wrapper:hover .image-title {
+            opacity: 1;
+        }
+      
+      .image-wrapper {
+            position: relative;
+        }
+    header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            color: #fff;
+            padding: 10px;
+            background-color: #454545;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav ul li {
+    margin-right: 10px;
+  }
+
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  #mostrarBtn {
+    background-color: rebeccapurple;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+
+  #mostrarBtn:hover {
+    background-color: #b1afaf;
+  }
+
+  #listaNav {
+    transition: opacity 10s ease;
+    display: none;
+    padding: 10px;
+    background-color: #454545;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+  }
+      
+    </style>
+</head>
+
+  <h1> The wings of time: Epoch</h1>
+    
+<body>
+  
+   <button class="toggle-button" onclick="showContainer()">
+        <img src="epoch/Epoch_-_Winged.webp" alt="Toggle HUD">
+    </button>
+  <button class="toggle-button2" >
+        <img src="epoch/epoch_hud-removebg-preview.png" alt="Toggle HUD">
+    </button>
+   
+  
+  
+    <div class="container">
+        <div class="buttons">
+            <button class="button" onclick="showGallery('eraJurassica')">2021</button>
+<button class="button" onclick="showGallery('antigoEgito')">2022-2023</button>
+<button id="mostrarBtn">Categorias</button>
+    <nav id="listaNav">
+      <ul>
+        <li><a href="de.html">Desenhos</a></li>
+        <li><a href= "pi.html">Pixel-arts</a></li>
+        <li><a href= "carrosel.html">Inicio</a></li>
+         <li><a href="index.html">Login</a></li>
+      </ul>
+    </nav>
+        </div>
+        <div class="gallery-container">
+            <div class="gallery" id="eraJurassica">
+               <div class="image-wrapper">
+                <img src="lem/Epoch1.jpeg" id="bixo" alt="Era Jurássica 1">
+                <p class="image-title">Epoca que eu era feliz e não sabia </p>
+                 </div>
+              
+               <div class= "image-wrapper">
+                <video width="500" height="500" controls>
+    <source src="lem/combo3.mp4" type="video/mp4">
+                <p class="image-title"> Alegria, apos 3 horas consigo programar o ataque</p>
+                 </div>
+                <div class= "image-wrapper">
+                <video width="500" height="500" controls>
+    <source src="lem/combo2.mp4" type="video/mp4">
+                <p class="image-title"> Lamentação, programação de combo do super android 13</p>
+                 </div>
+              <div class="image-wrapper">
+                <video width="500" height="500" controls>
+    <source src="lem/combo1.mp4" type="video/mp4">
+                <p class="image-title"> Sofrimento, programação de combo do goku black </p>
+                 </div>
+              </div>
+          
+          <div class="gallery" id="antigoEgito">
+               <div class="image-wrapper">
+                <video width="500" height="500" controls>
+    <source src="lem/2TI maioral.mp4" type="video/mp4">
+                <p class="image-title"> Sofrimento, programação de combo do goku black </p>
+                 </div>
+            <div class="gallery" id="antigoEgito">
+               <div class="image-wrapper">
+                <img src="lem/Caio ditador opressor.jpg" id="bixo" alt="Era Jurássica 1">
+                <p class="image-title">Ditador do iff, Caio ditador opressor </p>
+                 </div>
+              <div class="image-wrapper">
+                <img src="lem/IFF-GURADIAN ASSISTENT.jpg" id="bixo" alt="Era Jurássica 1">
+                <p class="image-title">Epadachin do iff, Diogo IFF no yaiba </p>
+                 </div>
+               <div class="image-wrapper">
+                <img src="lem/IFF-GUARDIAN.jpg" id="bixo" alt="Era Jurássica 1">
+                <p class="image-title">Guardião do iff, Coelho Guardião do iff </p>
+                 </div>
+              <div class="image-wrapper">
+                <img src="lem/caio opressor.jpg" id="bixo" alt="Era Jurássica 1">
+                <p class="image-title">Ditador do iff, ditador Caio oprimindo seu lacaio </p>
+                 </div>
+            
+            
+               <div class="image-wrapper">
+                <img src="lem/robots.jpg" id="bixo" alt="Era Jurássica 1">
+                <p class="image-title">Os Robós, os robos mais brabo do iff</p>
+                 </div>
+              
+               <div class="image-wrapper">
+              <iframe style= "position: relative; " width="560" height="315" src="https://www.youtube.com/embed/8nkHwJtTmv8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+
+              <div class="image-wrapper">
+              <img src="lem/sus-2022.jpg" id="bixo" alt="Era Jurássica 1">
+                <p class="image-title">Imagem mais sus das minhas memorias</p>
+                 </div>
+               <div class="image-wrapper">
+                <img src="lem/mim.jpg" id="bixo" alt="Era Jurássica 1">
+                <p class="image-title">KKKKKKKKKKKKKKKKKK</p>
+                 </div>
+               <div class="image-wrapper">
+                <img src="lem/turma 2.jpg" id="bixo" alt="Era Jurássica 1">
+                <p class="image-title">Ignore o lima pscopata no fundo</p>
+                 </div>
+              <div class="image-wrapper">
+                <img src="lem/Partida de Doors.JPG" id="bixo" alt="Era Jurássica 1">
+                <p class="image-title">Ignore o lima pscopata no fundo</p>
+                 </div>
+              
+               
+              <div class="image-wrapper">
+                <img src="lem/Labirinto infernal.png" id="bixo" alt="Era Jurássica 1">
+               <a href="https://inside-the-backrooms.fandom.com/wiki/Dark_Rooms" target="_blank" <p class="image-title">Backrooms andar negativo, enfim chegamos ao andar que demarca o final da jornada e ele simplesmente é inteiramente escuro e com as paredes pretas a unica coisa que temos para nos localizar são nossos assobios e tão pouco o teto </p> </a>
+                 </div> 
+            
+               <div class="image-wrapper">
+                <img src="lem/Engano.png" id="bixo" alt="Era Jurássica 1">
+                <p class="image-title">Saida?, encontramos uma direção para seguir que supostamente apontava para saida </p>
+                 </div>
+            
+                <div class="image-wrapper">
+                <img src="lem/bixo1.png" id="bixo" alt="Era Jurássica 1">
+                <p class="image-title">Desespero, seguimos a direção e nos levou a entidade que guarda esse andar, ela era praticamente invisivel por conta dela ser escura e o nivel mais ainda </p>
+                 </div>
+                <div class="image-wrapper">
+                <img src="lem/Situ.png" id="bixo" alt="Era Jurássica 1">
+                <p class="image-title">Corrida, estamos correndo pelas nossas vidas enquanto o campo continua escurencendo e já não temos visão nenhuma do monstro</p>
+                 </div>
+             
+            
+                <div class="image-wrapper">
+                <img src="lem/Saida.png" id="bixo" alt="Era Jurássica 1">
+                <p class="image-title">Saida, finalmente escapamos da criatura e encontramos a saida </p>
+                 </div>
+                <div class = "image-wrapper">
+                <img src="lem/pyke.jpg" id="cidade"alt="Era Jurássica 2">
+                <p class="image-title">Infelizmente, partiu em um dos momentos mais difíceis da minha vida. Era muito mais que um pet; era um companheiro.</p>
+              </div>
+                
+              <div class = "image-wrapper">
+                <img src="lem/coelho calvo.jpg" id="cidade"alt="Era Jurássica 2">
+                <p class="image-title">coelho calvo apenas</p>
+              </div>
+                  <div class = "image-wrapper">
+                <img src="lem/Cidade das lagrimas.png" id="cidade"alt="Era Jurássica 2">
+                <p class="image-title">Hollow Knight chegada a Cidade das lagrimas, A capital de hallowest o que nos aguarda a frente a musica e o designi passam uma sensação de medo ou será tristeza, no mapa está demarcando um memorial feito ao receptaculo puro de hollownest</p>
+              </div>
+              <div class= "image-wrapper">
+                <video width="500" height="500" controls>
+    <source src="lem/cidade.mp4" type="video/mp4">
+</video>
+                <p class="image-title"> Chegada ao memorial do receptaculo, aqui onde descobrimos o sentido da jornada em hallownest no começo do jogo vemos o casulo negro parecido com uma prisão onde está o receptaculo mas algo está de errado, o receptculo foi selado lá por tres anciãs</p>
+              </div>
+           
+            </div>
+             
+              
+            
+            
+          </div>
+            <div class="gallery" id="futuro">
+        </div>
+          </div>
+          
+         
+    <script>
+      function showContainer(){
+        const body = document.querySelector('body');
+        const toogle = document.querySelector('.toggle-button');
+        const toogle2 = document.querySelector('.toggle-button2');
+        const audio = new Audio('epoch/0AC_00.wav');
+        const audio2 = new Audio('epoch/0DC_00.wav');
+        const con = document.querySelector('.container');
+        if(con.style.display == 'none'){ 
+          toogle.classList.add('epoch-go');
+          audio.play();
+        setTimeout(function() {
+          audio2.play();
+           body.classList.add('shake-animation');
+        }, 7000); 
+           setTimeout(function() {
+          body.classList.remove('shake-animation');
+            con.style.display = 'flex';
+             toogle2.style.display = 'flex';
+             toogle.classList.remove('epoch-go');
+             toogle.style.display = 'none';
+        }, 10000); 
+      }   
+      else{
+          con.style.display = 'none';
+        }
+       
+      }
+       let activeGallery = ''; 
+      function showGallery(galleryId) {
+        const galleries = document.querySelectorAll('.gallery');
+        galleries.forEach(gallery => {
+            if (gallery.id === galleryId) {
+                gallery.style.display = 'flex';
+                activeGallery = galleryId; 
+            } else {
+                gallery.style.display = 'none';
+            }
+          
+        });
+
+        const buttons = document.querySelectorAll('.button');
+        buttons.forEach(button => {
+            if (button.getAttribute('onclick') === `showGallery('${activeGallery}')`) {
+            } else {
+                button.classList.remove('active');
+            }
+        });
+    }
+      document.getElementById("mostrarBtn").addEventListener("click", function() {
+            var lista = document.getElementById("listaNav");
+            if (lista.style.display === "none") {
+                lista.style.display = "block";
+            } else {
+                lista.style.display = "none";
+            }
+        });
+ 
+      
+
+      
+    </script>
+</body>
+</html>
