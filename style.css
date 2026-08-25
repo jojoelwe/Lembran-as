@@ -440,6 +440,76 @@ main { animation: surgir 0.7s ease; }
   color: var(--tinta);
 }
 
+.categorias {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.categoria {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid var(--linha);
+  background-color: var(--superficie);
+  overflow: hidden;
+  transition: transform var(--t), border-color var(--t), box-shadow var(--t);
+}
+
+.categoria:hover {
+  transform: translateY(-6px);
+  border-color: var(--luz);
+  box-shadow: 0 26px 50px rgba(0, 0, 0, 0.5), 0 0 34px var(--luz-fraca);
+}
+
+.categoria-capa {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  padding: 16px;
+  background-color: var(--tinta);
+}
+
+.categoria-capa img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(60%) brightness(0.8);
+  transition: transform var(--t), filter var(--t);
+}
+
+.categoria:hover .categoria-capa img {
+  transform: scale(1.06);
+  filter: grayscale(0%) brightness(1);
+}
+
+.categoria-corpo {
+  display: block;
+  padding: 20px 22px 24px;
+}
+
+.categoria-nome {
+  display: block;
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  margin-bottom: 6px;
+  transition: color var(--t);
+}
+
+.categoria:hover .categoria-nome { color: var(--luz); }
+
+.categoria-desc {
+  display: block;
+  font-size: 0.92rem;
+  color: var(--texto-fraco);
+  line-height: 1.6;
+}
+
 .carousel {
   position: relative;
   width: 100%;
@@ -1326,4 +1396,8 @@ main { animation: surgir 0.7s ease; }
   .floating-buttons { bottom: 16px; right: 16px; }
 
   .acoes .botao { flex: 1; justify-content: center; }
+
+  .categorias { grid-template-columns: 1fr; gap: 14px; }
+
+  .categoria-corpo { padding: 16px 18px 20px; }
 }

@@ -136,8 +136,7 @@ const OBRAS_PIXEL = [
   { url: "imagens/gifmaker_me.gif",        title: "Milharal",             tipo: "Animação" },
   { url: "pixel/savage.gif",               title: "Pato agiota",          tipo: "Animação" },
   { url: "pixel/uhu.jpg",                  title: "Milharal — Início",    tipo: "Estudo" },
-  { url: "pixel/não aguento mais ;-;.jpg", title: "Feudal-tree",          tipo: "Cenário" },
-  { url: "koishi.png",                     title: "Koishi the hat yokai", tipo: "Personagem" }
+  { url: "pixel/não aguento mais ;-;.jpg", title: "Feudal-tree",          tipo: "Cenário" }
 ];
 
 function initGaleriaPixel() {
