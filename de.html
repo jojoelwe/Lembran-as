@@ -1,80 +1,82 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-  <title>Galeria</title>
-  <link rel="stylesheet" type="text/css" href="des.css" lang="pt-BR">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desenhos — Lembra-ns</title>
+  <meta name="description" content="Galeria de desenhos do acervo pessoal de Joel Quinelato.">
+  <meta property="og:title" content="Desenhos — Lembra-ns">
+  <meta property="og:description" content="Galeria de desenhos do acervo pessoal.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://lembra-ns.netlify.app/imagens/heart_chan.jpg">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'><rect width='8' height='8' fill='%2316121c'/><g fill='%23e8c07d'><rect x='1' y='2' width='2' height='1'/><rect x='5' y='2' width='2' height='1'/><rect x='1' y='3' width='6' height='2'/><rect x='2' y='5' width='4' height='1'/><rect x='3' y='6' width='2' height='1'/></g></svg>">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
-   <header>
-    <h1> Desenhos</h1>
-     <button id="mostrarBtn">Categorias</button>
+
+<body class="pagina-desenhos">
+
+  <header class="cabecalho">
+    <div class="marca">
+      <span class="marca-titulo">Desenhos</span>
+      <span class="marca-sub">Técnico em Informática</span>
+    </div>
+    <button id="mostrarBtn" aria-expanded="false" aria-controls="listaNav">Categorias</button>
     <nav id="listaNav">
       <ul>
-        <li><a href="carrosel.html">Inicio</a></li>
-        <li><a href= "pi.html">Pixel-arts</a></li>
-        <li><a href= "le.html">Lembranças</a></li>
+        <li><a href="carrosel.html">Início</a></li>
+        <li><a href="pi.html">Pixel-arts</a></li>
+        <li><a href="le.html">Lembranças</a></li>
         <li><a href="index.html">Login</a></li>
       </ul>
     </nav>
-  
   </header>
-<body>
-  <div class="content">
-    <div class="slides">
-     <input type = "radio" name="radio" id="radio1" checked>
-       <input type = "radio" name="radio" id="radio2">
-      <input type = "radio" name="radio" id="radio3">
-      <input type = "radio" name="radio" id="radio4">
-      <input type = "radio" name="radio" id="radio5">
 
-      <div class="slide s1">
-         <img src="imagens/heart_chan.jpg" id="heart chan">
-        <figcaption>heart-chan</figcaption>
-      </div>
-       <div class="slide">
-        <img src="imagens/samara.jpg" id="samara">
-         <figcaption>samara</figcaption>
-      </div>
-       <div class="slide">
-          <img src="imagens/bibedatebu.jpg" id="chapeleiro">
-          <figcaption>chapeleiro</figcaption>
-      </div>
-      <div class="slide">
-          <img src="imagens/paisagemA0005.jpg" id="Revolução da natureza">
-         <figcaption>Revolução da natureza</figcaption>
-      </div>
-      <div class="slide">
-          <img src="imagens/Scan.jpg" id="Chan">
-         <figcaption>amazonia-chan</figcaption>
-      </div>
-        
-  </div>
+  <main class="exposicao">
 
-      <div class="navigation">
-        <label class="bar" for="radio1"> </label>
-        <label class="bar" for="radio2"> </label>
-        <label class="bar" for="radio3"> </label>
-        <label class="bar" for="radio4"> </label>
-        <label class="bar" for="radio5"> </label>
-      </div> 
-    
-  </div>
+    <div class="secao-cabecalho revelar">
+      <h1>Desenhos</h1>
+      <span class="legenda-secao">cinco peças</span>
+    </div>
 
-  <script>
-    document.getElementById("mostrarBtn").addEventListener("click", function() {
-            var lista = document.getElementById("listaNav");
-            if (lista.style.display === "none") {
-                lista.style.display = "block";
-            } else {
-                lista.style.display = "none";
-            }
-        });
-    
-            var lista = document.getElementById("listaNav");
-            if (lista.style.display === "none") {
-                lista.style.display = "block";
-            } else {
-                lista.style.display = "none";
-            }
-  </script>
+    <input type="radio" name="obra" id="radio1" checked>
+    <input type="radio" name="obra" id="radio2">
+    <input type="radio" name="obra" id="radio3">
+    <input type="radio" name="obra" id="radio4">
+    <input type="radio" name="obra" id="radio5">
+
+    <div class="palco revelar d1">
+      <div class="slides">
+        <figure class="slide"><img src="imagens/heart_chan.jpg" alt="Heart-chan"></figure>
+        <figure class="slide"><img src="imagens/samara.jpg" alt="Samara" loading="lazy"></figure>
+        <figure class="slide"><img src="imagens/bibedatebu.jpg" alt="Chapeleiro" loading="lazy"></figure>
+        <figure class="slide"><img src="imagens/paisagemA0005.jpg" alt="Revolução da natureza" loading="lazy"></figure>
+        <figure class="slide"><img src="imagens/Scan.jpg" alt="Amazônia-chan" loading="lazy"></figure>
+      </div>
+    </div>
+
+    <div class="placa revelar d2">
+      <p class="legenda l1"><span class="indice">01 / 05</span><span class="titulo-obra">Heart-chan</span></p>
+      <p class="legenda l2"><span class="indice">02 / 05</span><span class="titulo-obra">Samara</span></p>
+      <p class="legenda l3"><span class="indice">03 / 05</span><span class="titulo-obra">Chapeleiro</span></p>
+      <p class="legenda l4"><span class="indice">04 / 05</span><span class="titulo-obra">Revolução da natureza</span></p>
+      <p class="legenda l5"><span class="indice">05 / 05</span><span class="titulo-obra">Amazônia-chan</span></p>
+    </div>
+
+    <div class="miniaturas revelar d3">
+      <label for="radio1"><img src="imagens/heart_chan.jpg" alt="Ver Heart-chan"></label>
+      <label for="radio2"><img src="imagens/samara.jpg" alt="Ver Samara" loading="lazy"></label>
+      <label for="radio3"><img src="imagens/bibedatebu.jpg" alt="Ver Chapeleiro" loading="lazy"></label>
+      <label for="radio4"><img src="imagens/paisagemA0005.jpg" alt="Ver Revolução da natureza" loading="lazy"></label>
+      <label for="radio5"><img src="imagens/Scan.jpg" alt="Ver Amazônia-chan" loading="lazy"></label>
+    </div>
+
+  </main>
+
+  <footer class="rodape">
+    <span>Lembra-ns · Joel Quinelato</span>
+    <span><a href="https://github.com/jojoelwe" target="_blank" rel="noopener">GitHub</a></span>
+  </footer>
+
 </body>
 </html>

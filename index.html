@@ -3,24 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login</title>
+  <title>Entrar — Lembra-ns</title>
+  <meta name="description" content="Lembra-ns: acervo de desenhos, pixel-arts e memorias dos tres anos do Tecnico em Informatica, por Joel Quinelato.">
+  <meta property="og:title" content="Lembra-ns — Joel Quinelato">
+  <meta property="og:description" content="Desenhos, pixel-arts e memorias dos tres anos do Tecnico em Informatica.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://lembra-ns.netlify.app/imagens/heart_chan.jpg">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'><rect width='8' height='8' fill='%2316121c'/><g fill='%23e8c07d'><rect x='1' y='2' width='2' height='1'/><rect x='5' y='2' width='2' height='1'/><rect x='1' y='3' width='6' height='2'/><rect x='2' y='5' width='4' height='1'/><rect x='3' y='6' width='2' height='1'/></g></svg>">
   <link rel="stylesheet" href="style.css">
-  <script src="script.js"></script>
-  <nav>
-         <ul>
-         </ul>
-         </nav>
+  <script src="script.js" defer></script>
 </head>
-<body>
 
-  <div class="L">
- <div class="login">
-    <input type ="text" class="text" id="text" placeholder="Digite seu email"/>
-    <input type ="password" class="password" id="password" placeholder="senha"/>
-    <button type = "button" class = "entrar" type = "submit"> Entrar </button>
+<body class="pagina-login">
+
+  <main class="login">
+    <h1>Lembra-ns</h1>
+    <p class="sub">Acervo pessoal · Técnico em Informática, IFF</p>
+
+    <div class="campo">
+      <label for="text">Usuário</label>
+      <input type="text" id="text" placeholder="Digite seu usuário" autocomplete="username">
     </div>
-  </div>
-        
- 
+
+    <div class="campo">
+      <label for="password">Senha</label>
+      <input type="password" id="password" placeholder="Digite sua senha" autocomplete="current-password">
+    </div>
+
+    <button type="button" class="entrar">Entrar</button>
+
+    <p class="demo">
+      Acesso de demonstração<br>
+      usuário <strong>jo</strong> &nbsp;·&nbsp; senha <strong>1234</strong>
+    </p>
+  </main>
+
 </body>
 </html>
