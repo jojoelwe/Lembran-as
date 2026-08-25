@@ -257,105 +257,116 @@ main { animation: surgir 0.7s ease; }
   align-items: center;
   padding: 24px;
   background-color: var(--tinta);
-  background-image:
-    linear-gradient(rgba(16, 13, 20, 0.84), rgba(16, 13, 20, 0.96)),
-    url("imagens/heart_chan.jpg");
+  background-image: url("imagens/heart_chan.jpg");
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
 }
 
 .login {
   width: 100%;
   max-width: 400px;
-  padding: 44px 38px 34px;
-  background-color: rgba(31, 26, 39, 0.86);
-  border: 1px solid var(--linha-viva);
-  backdrop-filter: blur(16px);
-  box-shadow: 0 40px 90px rgba(0, 0, 0, 0.7);
+  padding: 34px 30px 28px;
+  background: rgba(180, 183, 6, 0.06);
+  border: 2px solid rgba(227, 51, 38, 0.22);
+  border-radius: 20px;
+  backdrop-filter: blur(14px) saturate(1.1);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
   text-align: center;
   animation: subir 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .login h1 {
-  font-size: 2rem;
-  margin-bottom: 6px;
+  font-size: 1.9rem;
+  color: #fff;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.65);
+  margin-bottom: 4px;
 }
 
 .login .sub {
   font-family: var(--serif);
   font-style: italic;
-  font-size: 1rem;
-  color: var(--texto-fraco);
-  margin-bottom: 32px;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.82);
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.7);
+  margin-bottom: 26px;
 }
 
 .campo {
-  margin-bottom: 18px;
+  margin-bottom: 14px;
   text-align: left;
 }
 
 .campo label {
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   font-family: var(--serif);
-  font-size: 0.95rem;
-  color: var(--texto-med);
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.86);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.7);
 }
 
 .login input {
   width: 100%;
-  height: 46px;
+  height: 44px;
   padding: 0 15px;
-  border: 1px solid var(--linha-viva);
-  border-radius: 2px;
-  background-color: rgba(16, 13, 20, 0.6);
-  color: var(--texto);
+  border: 2px solid rgba(255, 255, 255, 0.28);
+  border-radius: 10px;
+  background: rgba(10, 12, 40, 0.32);
+  color: #fff;
   font-family: var(--sans);
   font-size: 0.98rem;
-  transition: border-color var(--t), box-shadow var(--t);
+  backdrop-filter: blur(4px);
+  transition: border-color var(--t), background-color var(--t), box-shadow var(--t);
 }
 
-.login input::placeholder { color: #5c5261; }
+.login input::placeholder { color: rgba(255, 255, 255, 0.5); }
 
 .login input:focus {
   outline: none;
-  border-color: var(--luz);
-  box-shadow: 0 0 22px var(--luz-fraca);
+  border-color: rgba(253, 200, 48, 0.85);
+  background: rgba(10, 12, 40, 0.45);
+  box-shadow: 0 0 22px rgba(253, 200, 48, 0.28);
 }
 
 .entrar {
   width: 100%;
-  height: 48px;
-  margin-top: 12px;
-  border: 1px solid var(--luz);
-  border-radius: 2px;
-  background-color: transparent;
-  color: var(--luz);
+  height: 46px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 10px;
+  background-image: linear-gradient(45deg, #f37335, #fdc830);
+  color: #2b2118;
   cursor: pointer;
   font-family: var(--serif);
   font-size: 1.05rem;
-  letter-spacing: 0.04em;
-  transition: background-color var(--t), color var(--t), box-shadow var(--t);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  transition: transform 0.15s ease, box-shadow var(--t), filter var(--t);
 }
 
 .entrar:hover {
-  background-color: var(--luz);
-  color: var(--tinta);
-  box-shadow: 0 0 36px var(--luz-fraca);
+  transform: translateY(-2px);
+  filter: brightness(1.06);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.5);
 }
+
+.entrar:active { transform: translateY(0); }
 
 .demo {
-  margin-top: 26px;
-  padding-top: 18px;
-  border-top: 1px solid var(--linha);
+  margin-top: 20px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
   font-family: var(--serif);
   font-style: italic;
-  font-size: 0.9rem;
-  color: var(--texto-fraco);
-  line-height: 1.9;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.72);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.7);
+  line-height: 1.8;
 }
 
-.demo strong { color: var(--texto-med); font-style: normal; }
+.demo strong { color: #fff; font-style: normal; }
+
 
 .conteudo {
   width: min(1080px, 100%);
